@@ -11,8 +11,11 @@ var countDownDate = Totaltime
 
 
 // function chronometre
-let count = function (countDownDate) {
+let count = function () {
 
+    var value = Input.value
+    var Totaltime = ((value * 60) * 60) * 1000;
+    var countDownDate = Totaltime
 
     // met un temps de depart 
     let now = 0;
@@ -33,8 +36,10 @@ let count = function (countDownDate) {
 
     var countDownDate = countDownDate - 1000;
 
+    let valuemilli = countDownDate
+    Input.value = (((valuemilli / 1000) / 60) / 60)
 
-    return countDownDate;
+
 
 
     // If the count down is finished, write some text 
@@ -46,14 +51,16 @@ let count = function (countDownDate) {
 
 
 };
-let discout = function (countDownDate) {
+
+
+let discout = function () {
 
     let regex = /\d/;
     let InputTest = regex.test(Input.value)
 
     if (InputTest === false) { alert("Entrez un nombre valide"); Input.value = ""; } else {
 
-        setInterval(count(countDownDate), 1000)
+        setInterval(count, 1000)
     }
 }
 
